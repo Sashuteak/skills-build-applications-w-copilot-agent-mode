@@ -1,9 +1,24 @@
 import express from 'express';
 import db from './config/database.js';
+import apiRouter from './routes/api.js';
 
 const app = express();
 
+app.use((request, response, next) => {
+  response.setHeader('Access-Control-Allow-Origin', '*');
+  response.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  response.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  if (request.method === 'OPTIONS') {
+    response.sendStatus(204);
+    return;
+  }
+
+  next();
+});
+
 app.use(express.json());
+app.use('/api', apiRouter);
 
 app.get('/api/health', (_request, response) => {
   response.status(db.readyState === 1 ? 200 : 503).json({
