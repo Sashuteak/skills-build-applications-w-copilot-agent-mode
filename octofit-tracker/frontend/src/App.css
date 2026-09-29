@@ -1,0 +1,25 @@
+.intro {
+  max-width: 38rem;
+  padding-top: min(14vh, 7rem);
+}
+
+.app-logo {
+  display: block;
+  width: min(100%, 240px);
+  height: auto;
+}
+
+.navbar-logo {
+  width: 32px;
+  height: auto;
+}
+
+.intro h1 {
+  color: #153a34;
+  font-weight: 700;
+}
+
+.intro p {
+  color: #4c625a;
+  font-size: 1.125rem;
+}
