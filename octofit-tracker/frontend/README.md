@@ -1,3 +1,18 @@
+# OctoFit Tracker frontend
+
+## Environment variables
+
+`VITE_CODESPACE_NAME` must be defined so the app can reach the API at
+`https://${VITE_CODESPACE_NAME}-8000.app.github.dev/api/[component]/`.
+Define it in `octofit-tracker/frontend/.env.local` (not committed):
+
+```bash
+echo "VITE_CODESPACE_NAME=$CODESPACE_NAME" > octofit-tracker/frontend/.env.local
+```
+
+Restart `npm run dev --prefix octofit-tracker/frontend` after changing it. If it is unset,
+the app falls back to `http://localhost:8000/api` and logs a console warning.
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
